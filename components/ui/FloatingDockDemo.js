@@ -12,7 +12,7 @@ import { FloatingDock } from "@/components/ui/floating-dock";
 export function FloatingDockDemo() {
   const links = [
     {
-      title: "Hero",
+      title: "About",
       icon: <IconRocket className="h-full w-full text-neutral-300" />,
       href: "#hero",
     },
