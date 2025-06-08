@@ -39,7 +39,7 @@ const GridItem1 = () => (
     <img
       src="https://leetcard.jacoblin.cool/pratyushkhengle?theme=dark&font=baloo&ext=contest"
       alt="LeetCode Contest Stats"
-      className="w-[full] h-auto object-contain rounded-xl p-1 md:p-2 dark:shadow-[0px_0px_27px_0px_#2D2D2D]"
+      className="w-[full] h-auto object-contain rounded-xl p-1 md:p-2 shadow-[0px_0px_27px_0px_#2D2D2D]"
     />
   </div>
 );
