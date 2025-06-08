@@ -8,7 +8,7 @@ import {
 
 export function BentoGridDemo() {
   return (
-    <BentoGrid className="max-w-4xl mx-auto mb-20">
+    <BentoGrid className="max-w-4xl mx-auto mb-32">
       {items.map((item, i) => (
         <BentoGridItem
           key={i}
@@ -22,9 +22,8 @@ export function BentoGridDemo() {
     </BentoGrid>
   );
 }
-const Skeleton = () => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"></div>
-);
+
+
 const items = [
   {
     title: "JS30 Challenge",
@@ -58,7 +57,6 @@ const items = [
       "Building one full-stack app every quarter to apply design, backend, and frontend concepts in real-world setups.",
     header: (
     <img
-      // src="https://i.pinimg.com/736x/ff/bd/dd/ffbddd37b2ceffe750fc534bfa11429d.jpg"
       src="https://i.pinimg.com/736x/e9/20/81/e92081263f620e23a2a243e031324301.jpg"
       alt="Quarterly Projects"
       className="w-full h-36 object-fill rounded-xl bg-black-100 p-2"

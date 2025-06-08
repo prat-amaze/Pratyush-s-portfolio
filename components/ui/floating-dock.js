@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   AnimatePresence,
   motion,
@@ -9,6 +9,18 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
+
+// Helper hook for screen width
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640); // Tailwind 'sm'
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return isMobile;
+}
 
 export const FloatingDock = ({ items, className }) => {
   return (
@@ -26,7 +38,7 @@ const FloatingDockDesktop = ({ items, className }) => {
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "flex h-16 items-end gap-4 rounded-2xl bg-gray-50 px-4 pb-3 dark:bg-neutral-900",
+        "flex h-16 items-end gap-4 rounded-2xl  px-4 pb-3 bg-neutral-900",
         className
       )}
     >
@@ -40,16 +52,24 @@ const FloatingDockDesktop = ({ items, className }) => {
 function IconContainer({ mouseX, title, icon, href }) {
   const ref = useRef(null);
   const [hovered, setHovered] = useState(false);
+  const isMobile = useIsMobile();
 
   const distance = useTransform(mouseX, (val) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
     return val - bounds.x - bounds.width / 2;
   });
 
-  const widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
-  const heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
-  const widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
-  const heightTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
+  // Responsive transforms
+  const sizeSmall = isMobile ? 32 : 40;
+  const sizeLarge = isMobile ? 64 : 80;
+  const iconSmall = isMobile ? 16 : 20;
+  const iconLarge = isMobile ? 32 : 40;
+
+  const widthTransform = useTransform(distance, [-150, 0, 150], [sizeSmall, sizeLarge, sizeSmall]);
+  const heightTransform = useTransform(distance, [-150, 0, 150], [sizeSmall, sizeLarge, sizeSmall]);
+
+  const widthTransformIcon = useTransform(distance, [-150, 0, 150], [iconSmall, iconLarge, iconSmall]);
+  const heightTransformIcon = useTransform(distance, [-150, 0, 150], [iconSmall, iconLarge, iconSmall]);
 
   const width = useSpring(widthTransform, { mass: 0.1, stiffness: 150, damping: 12 });
   const height = useSpring(heightTransform, { mass: 0.1, stiffness: 150, damping: 12 });
@@ -64,7 +84,7 @@ function IconContainer({ mouseX, title, icon, href }) {
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative flex aspect-square items-center justify-center rounded-full bg-gray-200 dark:bg-neutral-800"
+        className="relative flex aspect-square items-center justify-center rounded-full bg-neutral-800"
       >
         <AnimatePresence>
           {hovered && (
@@ -72,12 +92,13 @@ function IconContainer({ mouseX, title, icon, href }) {
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="absolute -top-8 left-1/2 w-fit rounded-md border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs whitespace-pre text-neutral-700 dark:border-neutral-900 dark:bg-neutral-800 dark:text-white"
+              className="absolute -top-8 left-1/2 w-fit rounded-md border  px-2 py-0.5 text-xs whitespace-pre border-neutral-900 bg-neutral-800 text-white"
             >
               {title}
             </motion.div>
           )}
         </AnimatePresence>
+
         <motion.div
           style={{ width: widthIcon, height: heightIcon }}
           className="flex items-center justify-center"
