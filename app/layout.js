@@ -12,11 +12,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Pratyush's Portfolio",
-  description: "Portfolio",
+  title: "Pratyush Khengle | ML & Operations Engineer",
+  description: "ML & Operations Engineer at Chubb. IIT Madras grad building agentic AI systems — LLM pipelines, RAG, and intelligent automation.",
   icons: {
-        icon: '/icon.pnG', 
-      },
+    icon: '/icon.png',
+  },
 };
 
 export default function RootLayout({ children }) {

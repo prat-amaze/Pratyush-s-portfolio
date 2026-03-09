@@ -2,8 +2,10 @@ import Hero from "@/components/Hero";
 import GridBackgroundDemo from "@/components/ui/GridBackground";
 import Collaborate from "@/components/Collaborate";
 import Projects from "@/components/Projects";
+import Experience from "@/components/Experience";
+import Skills from "@/components/Skills";
 import Upto from "@/components/Upto";
-import { FloatingDockDemo } from "@/components/ui/FloatingDockDemo";
+import { FloatingNav } from "@/components/FloatingNav";
 
 export default function Home() {
   return (
@@ -14,6 +16,10 @@ export default function Home() {
             <Hero />
           </section>
 
+          <section id="experience">
+            <Experience />
+          </section>
+
           <section id="projects">
             <Projects />
           </section>
@@ -22,13 +28,17 @@ export default function Home() {
             <Collaborate />
           </section>
 
+          <section id="skills">
+            <Skills />
+          </section>
+
           <section id="upto">
             <Upto />
           </section>
         </div>
       </main>
 
-      <FloatingDockDemo />
+      <FloatingNav />
     </GridBackgroundDemo>
   );
 }

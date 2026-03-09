@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThreeDCardDemo } from './ThreeDCardDemo';
+import { ProjectCard } from './ProjectCard';
 
 const Projects = () => {
   return (
@@ -7,35 +7,21 @@ const Projects = () => {
       <h1 className="text-white text-3xl md:text-4xl font-bold text-center mb-10">
         Recent Projects
       </h1>
-      
-      <div className="flex flex-wrap justify-center gap-8 max-w-7xl">
-        <ThreeDCardDemo
-          title="LinkTree Clone"
-          desc="A minimalist Next.js-based platform to showcase multiple profile or content links."
-          live="https://link-tree-nine-pi.vercel.app/"
-          repo="https://github.com/prat-amaze/LinkTree"
-          image="/linkTree.png"
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-4xl">
+        <ProjectCard
+          title="Automated AI-Influencer"
+          desc="Agentic pipeline converting raw ideas into short-form videos — LLM reasoning layer generates scripts and visual prompts through a multi-step generative workflow."
+          live="https://drive.google.com/file/d/1ZAQAcGKp2hUSAg0P29Z4uC0H22OerZkc/view?usp=sharing"
+          repo="https://github.com/prat-amaze/Automated-AI-influencer"
+          image="/Ai-influencer.png"
         />
-        <ThreeDCardDemo
+        <ProjectCard
           title="BlogSpace"
           desc="A sleek markdown-powered blog app with real-time content publishing using Next.js."
           live="https://blog-space-taupe.vercel.app/"
           repo="https://github.com/prat-amaze/BlogSpace"
           image="/blogspace.png"
-        />
-        <ThreeDCardDemo
-          title="To-Do List"
-          desc="A minimal and responsive to-do list app built using JavaScript, featuring local storage for persistent task management."
-          live="https://prat-amaze.github.io/ToDoList-App/"
-          repo="https://github.com/prat-amaze/ToDoList-App"
-          image="/todo.png"
-        />
-        <ThreeDCardDemo
-          title="FoodRecipe-App"
-          desc="A React-based recipe search app that fetches and displays delicious food recipes using a public API."
-          live="https://food-recipe-app-inky-six.vercel.app/"
-          repo="https://github.com/prat-amaze/FoodRecipe-App"
-          image="/foodrecipe.png"
         />
       </div>
     </div>

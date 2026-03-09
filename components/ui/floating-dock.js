@@ -49,7 +49,7 @@ const FloatingDockDesktop = ({ items, className }) => {
   );
 };
 
-function IconContainer({ mouseX, title, icon, href }) {
+function IconContainer({ mouseX, title, icon, href, target }) {
   const ref = useRef(null);
   const [hovered, setHovered] = useState(false);
   const isMobile = useIsMobile();
@@ -78,7 +78,7 @@ function IconContainer({ mouseX, title, icon, href }) {
   const heightIcon = useSpring(heightTransformIcon, { mass: 0.1, stiffness: 150, damping: 12 });
 
   return (
-    <a href={href}>
+    <a href={href} target={target}>
       <motion.div
         ref={ref}
         style={{ width, height }}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80">
+  <defs>
+    <clipPath id="cl">
+      <rect x="0" y="0" width="67" height="80"/>
+    </clipPath>
+    <clipPath id="cr">
+      <rect x="53" y="0" width="67" height="80"/>
+    </clipPath>
+  </defs>
+  <!-- back of right link (behind left link) -->
+  <rect x="48" y="8" width="62" height="64" rx="32" fill="none" stroke="#0e7c45" stroke-width="11" clip-path="url(#cl)"/>
+  <!-- left link -->
+  <rect x="10" y="8" width="62" height="64" rx="32" fill="none" stroke="#1DB954" stroke-width="11"/>
+  <!-- front of right link (in front of left link) -->
+  <rect x="48" y="8" width="62" height="64" rx="32" fill="none" stroke="#1DB954" stroke-width="11" clip-path="url(#cr)"/>
+</svg>
