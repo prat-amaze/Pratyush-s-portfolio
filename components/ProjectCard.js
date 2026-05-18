@@ -49,11 +49,11 @@ export function ProjectCard({ title, desc, live, repo, image, wip }) {
           <CardItem
             translateZ={20}
             as="a"
-            href={repo}
-            target="_blank"
-            className="px-4 py-2 rounded-xl bg-white text-black text-xs font-bold"
+            href={repo || undefined}
+            target={repo ? "_blank" : undefined}
+            className={`px-4 py-2 rounded-xl text-xs font-bold ${repo ? "bg-white text-black" : "bg-neutral-700 text-neutral-300 cursor-default"}`}
           >
-            Github Repo
+            {repo ? "Github Repo" : "Private Repo"}
           </CardItem>
         </div>
       </CardBody>

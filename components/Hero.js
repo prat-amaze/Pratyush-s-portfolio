@@ -27,9 +27,9 @@ const Hero = () => {
           Pratyush Khengle
         </h1>
         <h3 className="text-lg md:text-2xl font-semibold text-[#cad5e2] mt-0">
-          ML & Operations Engineer
+          Agentic AI Engineer
         </h3>
-        <TextGenerateEffect words="IIT Madras grad building agentic AI systems — LLM pipelines, RAG, and intelligent automation." />
+        <TextGenerateEffect words="IIT Madras grad shipping production multi-agent systems — LangGraph, RAG, and agentic automation." />
 
         <div className="mt-8 sm:mt-7 flex justify-center gap-6 sm:gap-8 md:gap-10">
           <a href="https://github.com/prat-amaze/" target="_blank" rel="noopener noreferrer" className="cursor-pointer transition-transform duration-200 hover:-translate-y-1">
