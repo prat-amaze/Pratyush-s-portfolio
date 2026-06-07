@@ -6,6 +6,7 @@ import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
 import Upto from "@/components/Upto";
 import { FloatingNav } from "@/components/FloatingNav";
+import ChatWidget from "@/components/ChatWidget";
 
 export default function Home() {
   return (
@@ -39,6 +40,7 @@ export default function Home() {
       </main>
 
       <FloatingNav />
+      <ChatWidget />
     </GridBackgroundDemo>
   );
 }

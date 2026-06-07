@@ -1,3 +1,5 @@
+"use client";
+
 import {
   IconRocket,
   IconCode,
@@ -5,10 +7,14 @@ import {
   IconUser,
   IconTimeline,
   IconBolt,
+  IconSparkles,
 } from "@tabler/icons-react";
 import { FloatingDock } from "@/components/ui/floating-dock";
 
 export function FloatingNav() {
+  const openChat = () =>
+    window.dispatchEvent(new CustomEvent("open-chat"));
+
   const links = [
     {
       title: "About",
@@ -39,6 +45,11 @@ export function FloatingNav() {
       title: "What am I up to",
       icon: <IconUser className="h-full w-full text-neutral-300" />,
       href: "#upto",
+    },
+    {
+      title: "Ask AI",
+      icon: <IconSparkles className="h-full w-full text-purple-400" />,
+      onClick: openChat,
     },
   ];
 
